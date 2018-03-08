@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EML Intro To WebVR Workshop</title>
+    <meta name="description" content="EML Intro To WebVR Workshop">
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <script src="/js/show-whale-on-click.component.js"></script>
+    <script src="/js/raycaster-autorefresh.component.js"></script>
+    <script src="/js/hide-if-not-mobile.component.js"></script>
+  </head>
+  <body>
+    <!-- Your A-Frame scene goes here! -->
+    
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="whale-skeleton" response-type="arraybuffer" src="https://cdn.glitch.com/e3172488-56da-4bed-8010-cecd1f7f03fd%2Fwhale-skeleton.glb?1520377773001"></a-asset-item>
+        <a-asset-item id="blue-whale" response-type="arraybuffer" src="https://cdn.glitch.com/e3172488-56da-4bed-8010-cecd1f7f03fd%2Fblue-whale.glb?1520022370428"></a-asset-item>
+        <audio id="whaleNoise" src="https://cdn.glitch.com/e3172488-56da-4bed-8010-cecd1f7f03fd%2Fwhale-noise.mp3?1520377787263"></audio>
+        <audio id="welcome" src="https://cdn.glitch.com/e3172488-56da-4bed-8010-cecd1f7f03fd%2Fwelcome-message.mp3?1520377804022"></audio>
+        <audio id="blueWhale" src="https://cdn.glitch.com/e3172488-56da-4bed-8010-cecd1f7f03fd%2Fwhale-message.mp3?1520377818449"></audio>
+        <img id="wall" src="https://cdn.glitch.com/e3172488-56da-4bed-8010-cecd1f7f03fd%2Fwall-texture.jpg?1520378646891">
+        <img id="floor" src="https://cdn.glitch.com/e3172488-56da-4bed-8010-cecd1f7f03fd%2Ffloor-texture.jpg?1520378790187">
+      </a-assets>
+      
+      <a-box color="#c2b3a3" height="1" width="50" depth="50" position="0 0 0" src="#floor" repeat="10 10"></a-box>
+      <a-box color="#c2b3a3" height="1" width="50" depth="50" position="-25 25 0" rotation="0 0 -90" src="#wall" repeat="10 10"></a-box>
+      <a-box color="#c2b3a3" height="1" width="50" depth="50" position="25 25 0" rotation="0 0 -90" src="#wall" repeat="10 10"></a-box>
+      <a-box color="#c2b3a3" height="1" width="50" depth="50" position="0 25 25" rotation="0 90 90" src="#wall" repeat="10 10"></a-box>
+      <a-box color="#c2b3a3" height="1" width="50" depth="50" position="0 25 -25" rotation="0 90 90" src="#wall" repeat="10 10"></a-box>
+      <a-entity gltf-model="#whale-skeleton" position="3 2 3" scale="0.2 0.2 0.2"></a-entity>
+      <a-entity id="player" wasd-controls></a-entity>
+    </a-scene>
+  </body>
+</html>
